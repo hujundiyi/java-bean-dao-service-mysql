@@ -7,7 +7,7 @@
 后面会陆续接入java框架的
 
 
-<1>首先加入需要的jar库文件
+# <1>首先加入需要的jar库文件
 	1.mysql-connector-java-5.1.39-bin.jar文件  jdbc的mysql驱动
 	2.mail.jar  注册的邮件发送
 	3.jstl.jar  通过表达式，将数据显示在jsp
@@ -20,11 +20,11 @@
 	10.mchange-commons-java-0.2.3.jar  c3p0数据库连接池的辅助包,没有这个包系统启动的时候会报错
 	11.standard.jar  与jstl一起使用  没有jstl会报错
 
-<2>创建数据库
+# <2>创建数据库
 	store_v1.0.sql是数据库执行语句  在navicat中执行就可以创建表和相关数据了
 	相关建表的原则和思路个人建议还是先学习jdbc的相关课程  如果有基础可以忽略
 
-<3>编写代码
+# <3>编写代码
 	思路：因为我们用到的是servlet 所以 为了可以更好的调度和尽量减少代码 封装一个baseServlet的类
 	这样后面的servlet都继承他 当从页面点击链接或者按钮的时候 发送请求 请求中带有method参数 servlet
 	通过这个参数的值 来找到这个参数所带表的方法  希望这里好好理解  代码中会有相关注释
