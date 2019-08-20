@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,7 +30,21 @@
 			</div>
 			<div class="col-md-4">
 				<div class="text-center" style="margin-top: 20px;" id="index_right_login">
-					<a href="login.jsp">登录</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="register.jsp">注册</a>
+					<ul class="list-inline">
+						<c:if test="${empty loginUser }">
+							<li><a href="login.jsp">登录</a></li>
+							<li><a href="register.jsp">注册</a></li>
+						</c:if>
+						<c:if test="${not empty loginUser }">
+							欢迎您<li><a href="login.jsp">${loginUser.username }</a></li>
+							<li><a href="register.jsp">退出</a></li>
+							<li><a href="cart.jsp">购物车</a></li>
+							<li><a href="order.jsp">订单</a></li>
+						</c:if>
+						
+					</ul>
+					
+					
 				</div>
 			</div>
 		</div>

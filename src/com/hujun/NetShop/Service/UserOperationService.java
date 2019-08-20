@@ -21,10 +21,13 @@ public class UserOperationService {
 		UserBean user = new UserBean();
 		UserDao userDao = new UserDaoImpl();
 		user = userDao.login(userName, password);
-		if (user != null) {
+		if (user == null) {
+			throw new RuntimeException("账号或密码有误");
+		} else if (user.getState().equals("0")) {
+			throw new RuntimeException("账号未激活");
+		} else {
 			return user;
 		}
-		return null;
 	}
 
 	public int register(UserBean user) {

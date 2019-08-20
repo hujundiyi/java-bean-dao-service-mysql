@@ -29,7 +29,7 @@ public class UserDaoImpl implements UserDao {
 		UserBean user = new UserBean();
 		Connection conn = JDBCUtil.getConn();
 
-		String sql = "select * from user where name = ? and password = ?";
+		String sql = "select * from user where username=? and password=?";
 
 		PreparedStatement statement;
 		try {
@@ -53,7 +53,6 @@ public class UserDaoImpl implements UserDao {
 				return user;
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

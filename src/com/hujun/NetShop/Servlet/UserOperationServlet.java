@@ -25,13 +25,21 @@ public class UserOperationServlet extends BaseServlet {
 	}
 
 	public String login(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		String usernameString = request.getParameter("userName");
+		String usernameString = request.getParameter("username");
 		String passwordString = request.getParameter("password");
 		UserOperationService userService = new UserOperationService();
-		UserBean userBean = userService.login(usernameString, passwordString);
-		System.out.println("点击了login " + usernameString + passwordString + request);
-		if (userBean != null) {
-			return "index.jsp";
+
+		System.out.println(usernameString + "-----" + passwordString);
+		try {
+			UserBean userBean = userService.login(usernameString, passwordString);
+			if (userBean != null) {
+				request.getSession().setAttribute("loginUser", userBean);
+				return "/index.jsp";
+			}
+		} catch (Exception e) {
+			String msg = e.getMessage();
+			request.setAttribute("msg", msg);
+			return "/login.jsp";
 		}
 		return null;
 	}
