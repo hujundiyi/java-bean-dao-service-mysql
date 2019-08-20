@@ -20,18 +20,18 @@ public class MailUtils {
 
 		Properties props = new Properties();
 		// 设置发送的协议
-		// props.setProperty("mail.transport.protocol", "SMTP");
+		props.setProperty("mail.transport.protocol", "SMTP");
 
 		// 设置发送邮件的服务器
-		// props.setProperty("mail.host", "smtp.126.com");
-		// props.setProperty("mail.smtp.auth", "true");// 指定验证为true
+		props.setProperty("mail.host", "smtp.163.com");
+		props.setProperty("mail.smtp.auth", "true");// 指定验证为true
 
 		// 创建验证器
 		Authenticator auth = new Authenticator() {
 			@Override
 			public PasswordAuthentication getPasswordAuthentication() {
 				// 设置发送人的帐号和密码
-				return new PasswordAuthentication("admin@shop.com", "admin");
+				return new PasswordAuthentication("hujundiyi@163.com", "hu676083434");
 			}
 		};
 
@@ -41,7 +41,7 @@ public class MailUtils {
 		Message message = new MimeMessage(session);
 
 		// 设置发送者
-		message.setFrom(new InternetAddress("admin@shop.com"));
+		message.setFrom(new InternetAddress("hujundiyi@163.com"));
 
 		// 设置发送方式与接收者
 		message.setRecipient(RecipientType.TO, new InternetAddress(email));
@@ -56,11 +56,14 @@ public class MailUtils {
 		message.setContent(content, "text/html;charset=utf-8");
 
 		// 3.创建 Transport用于将邮件发送
+//		Transport transport = session.getTransport();
+//		transport.connect("hujundiyi@163.com", "hujundiyi163");
+//		transport.send(message, message.getAllRecipients());
 		Transport.send(message);
 		System.out.println("okokok");
 	}
 
-//	public static void main(String[] args) throws AddressException, MessagingException {
-//		MailUtils.sendMail("aaa@shop.com", "abcdefg");
-//	}
+	public static void main(String[] args) throws AddressException, MessagingException {
+		MailUtils.sendMail("676083434@qq.com", "abcdefg");
+	}
 }

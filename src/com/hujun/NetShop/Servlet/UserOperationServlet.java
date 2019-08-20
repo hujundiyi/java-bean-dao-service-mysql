@@ -55,13 +55,31 @@ public class UserOperationServlet extends BaseServlet {
 		int result = userService.register(user);
 		// 插入成功 发送邮件
 		if (result != 0) {
-			MailUtils.sendMail(user.getEmail(), user.getCode());
 			request.setAttribute("msg", "用户注册成功，请到邮箱激活！");
-			return "/NetShop/info.jsp";
+			MailUtils.sendMail(user.getEmail(), user.getCode());
+			return "/info.jsp";
 		} else {
 			request.setAttribute("msg", "用户注册失败");
-			return "/NetShop/info.jsp";
+			return "/info.jsp";
 		}
+	}
+
+	// 邮箱激活
+	public String active(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String codeString = request.getParameter("code");
+		UserOperationService userService = new UserOperationService();
+		int result = userService.active(codeString);
+		if (result == 0) {
+			request.setAttribute("msg", "没有此用户信息");
+			return "/info.jsp";
+		} else if (result == 1) {
+			request.setAttribute("msg", "激活成功，请登录");
+			return "/login.jsp";
+		} else {
+			request.setAttribute("msg", "此用户已经激活");
+			return "/info.jsp";
+		}
+
 	}
 
 }

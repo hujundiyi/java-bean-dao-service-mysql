@@ -27,7 +27,10 @@ public class BaseServlet extends HttpServlet {
 		// 一般功能执行完之后要跳转页面 所以定义一个跳转页面的路径
 		String pathString = null;
 		// 获取字节码文件
-		Class clazz = this.getClass();
+		Class<? extends BaseServlet> clazz = this.getClass();
+
+		request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("utf-8");
 
 		try {
 			// 通过字节码文件判断是否有传过来的方法 有就执行

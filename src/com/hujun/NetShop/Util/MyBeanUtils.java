@@ -27,6 +27,7 @@ public class MyBeanUtils {
 	public static <T> T populate(Class<T> clazz, Map<String, String[]> map) {
 		try {
 
+			@SuppressWarnings("deprecation")
 			T obj = clazz.newInstance();
 
 			// 由于BeanUtils将字符串"1992-3-3"向user对象的setBithday();方法传递参数有问题,手动向BeanUtils注册一个时间类型转换器

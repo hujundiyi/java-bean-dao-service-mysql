@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanHandler;
 
 import com.hujun.NetShop.Bean.UserBean;
 import com.hujun.NetShop.Dao.UserDao;
@@ -63,19 +64,58 @@ public class UserDaoImpl implements UserDao {
 	public int register(UserBean user) {
 		// TODO Auto-generated method stub
 		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
-
+		String checkSqlString = "select * from user where username=?";
 		String updatesalString = "INSERT INTO user VALUES(?,?,?,?,?,?,?,?,?,?)";
 		try {
-			// 没有这个用户名 可以注册
-			Object[] params = { user.getUid(), user.getUsername(), user.getPassword(), user.getName(), user.getEmail(),
-					user.getTelephone(), user.getBirthday(), user.getSex(), user.getState(), user.getCode() };
-			System.out.println("------" + user.getSex());
-			int result = qr.update(updatesalString, params);
-			if (result != 0) {
-				// 插入成功
-				return result;
+			UserBean checkUserBean = qr.query(checkSqlString, new BeanHandler<UserBean>(UserBean.class),
+					user.getUsername());
+			if (checkUserBean == null) {
+				// 没有这个用户名 可以注册
+				Object[] params = { user.getUid(), user.getUsername(), user.getPassword(), user.getName(),
+						user.getEmail(), user.getTelephone(), user.getBirthday(), user.getSex(), user.getState(),
+						user.getCode() };
+				int result = qr.update(updatesalString, params);
+				if (result != 0) {
+					// 插入成功
+					return result;
+				} else {
+					throw new RuntimeException("操作失败， 请重新注册");
+				}
 			} else {
-				throw new RuntimeException("操作失败， 请重新注册");
+				throw new RuntimeException("已有用户名，无需重复注册");
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return 0;
+	}
+
+	// 激活邮箱
+	@Override
+	public int active(String codeString) {
+		String checkSql = "select * from user where code=?";
+		String updateSql = "update user set state='1', code='' where uid=?";
+		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
+
+		try {
+			UserBean checkUser = qr.query(checkSql, new BeanHandler<UserBean>(UserBean.class), codeString);
+			if (checkUser != null) {
+				// 有这个用户
+				String uid = checkUser.getUid();
+				if (checkUser.getState().equals("0")) {
+					// 还没激活 激活
+					return qr.update(updateSql, uid);
+				} else {
+					// 已经激活
+					return 2;
+				}
+
+			} else {
+				// 没有这个用户
+				return 0;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

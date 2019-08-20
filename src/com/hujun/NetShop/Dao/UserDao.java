@@ -23,4 +23,11 @@ public interface UserDao {
 	 */
 	public int register(UserBean user);
 
+	/**
+	 * @Description:
+	 * @param codeString
+	 * @return
+	 */
+	public int active(String codeString);
+
 }

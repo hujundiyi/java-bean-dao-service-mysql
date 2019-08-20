@@ -33,4 +33,13 @@ public class UserOperationService {
 		return userDao.register(user);
 
 	}
+
+	/**
+	 * @Description:
+	 * @param codeString
+	 */
+	public int active(String codeString) {
+		UserDao userDao = new UserDaoImpl();
+		return userDao.active(codeString);
+	}
 }
