@@ -31,7 +31,7 @@ public class MailUtils {
 			@Override
 			public PasswordAuthentication getPasswordAuthentication() {
 				// 设置发送人的帐号和密码
-				return new PasswordAuthentication("hujundiyi@163.com", "hu676083434");
+				return new PasswordAuthentication("yourselfemail", "yourselfpassword");
 			}
 		};
 
@@ -41,7 +41,7 @@ public class MailUtils {
 		Message message = new MimeMessage(session);
 
 		// 设置发送者
-		message.setFrom(new InternetAddress("hujundiyi@163.com"));
+		message.setFrom(new InternetAddress("yourselfemail"));
 
 		// 设置发送方式与接收者
 		message.setRecipient(RecipientType.TO, new InternetAddress(email));
