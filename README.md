@@ -39,9 +39,11 @@
 	
 	4.在看页面jsp的时候 必须要懂得知识点是jstl、el表达式 cookie、session、get、post等基础知识 理解透
 	
-	5.如果代码中有不懂得 欢迎加我v 私聊 我还有很多的学习资料可以分享
+	5.如果代码中有不懂得 欢迎加我v 私聊 我还有很多的学习资料可以分享 加我时注明：学习
+
+
+<img src="/WebContent/resources/chatImage/chatImage.jpg" width=100px alt="vx二维码"/>
 	
-![image](https://github.com/hujundiyi/java-bean-dao-service-mysql/edit/master/)
 	
 	
 	
