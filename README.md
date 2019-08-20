@@ -37,6 +37,12 @@
 	
 	3.基本90%采用面向接口编程 但是在service没有采用接口的模式 而是直接调用dao层接口 这里想要更完美的 可以自行修改
 	
+	4.在看页面jsp的时候 必须要懂得知识点是jstl、el表达式 cookie、session、get、post等基础知识 理解透
+	
+	5.如果代码中有不懂得 欢迎加我v 私聊 我还有很多的学习资料可以分享
+	
+![image](https://github.com/hujundiyi/java-bean-dao-service-mysql/edit/master/)
+	
 	
 	
 	
