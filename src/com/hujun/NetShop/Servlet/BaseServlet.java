@@ -33,6 +33,9 @@ public class BaseServlet extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 
 		try {
+			if (mdString == null) {
+				mdString = "execute";
+			}
 			// 通过字节码文件判断是否有传过来的方法 有就执行
 			Method method = clazz.getMethod(mdString, HttpServletRequest.class, HttpServletResponse.class);
 
@@ -47,6 +50,12 @@ public class BaseServlet extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	// 默认方法
+	public String execute(HttpServletRequest req, HttpServletResponse rep) throws Exception {
+
+		return null;
 	}
 
 }

@@ -90,4 +90,11 @@ public class UserOperationServlet extends BaseServlet {
 
 	}
 
+	// 退出登录
+	public String logout(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		request.getSession().removeAttribute("loginUser");
+
+		return "/index.jsp";
+	}
+
 }
