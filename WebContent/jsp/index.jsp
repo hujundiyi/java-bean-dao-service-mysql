@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,9 +14,10 @@
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <script type="text/javascript"
 	src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+
 <title>商城首页</title>
 <body>
-	<%@ include file = "/header.jsp" %>
+	<%@ include file="/header.jsp"%>
 	<div class="container" style="margin-top: 20px;">
 		<!--
             	作者：676083434@qq.com
@@ -68,80 +71,34 @@
             -->
 		<div class="row" style="margin-top: 20px;">
 			<div class="col-md-12">
-				<span class="h3">最新商品</span> <img src="resources/images/img/title2.jpg" />
+				<span class="h3">最新商品</span> <img
+					src="resources/images/img/title2.jpg" />
 			</div>
 		</div>
 		<div class="row" style="margin-top: 10px;">
 			<div class="col-md-2" style="height: 446px;">
-				<img class="img-responsive" src="resources/images/products/hao/big01.jpg"
-					style="height: 100%;" />
+				<img class="img-responsive"
+					src="resources/images/products/hao/big01.jpg" style="height: 100%;" />
 			</div>
 
 			<div class="col-md-10" style="height: 446px;">
-				<div class="row" style="height: 50%;">
-					<div class="col-md-6" style="height: 100%;">
-						<img class="img-responsive" src="resources/images/products/hao/middle01.jpg"
-							style="height: 100%;" />
-					</div>
-					<div class="col-md-2 center-block text-center"
-						style="height: 100%;">
-						<img class="img-responsive" src="resources/images/products/hao/small02.jpg" />
-						<label class="center-block" style="color: royalblue;">电视机</label><br />
-						<label class="center-block" style="color: royalblue;">$3000</label>
-					</div>
-					<div class="col-md-2 center-block text-center"
-						style="height: 100%;">
-						<img class="img-responsive" src="resources/images/products/hao/small02.jpg" />
-						<label class="center-block" style="color: royalblue;">电视机</label><br />
-						<label class="center-block" style="color: royalblue;">$3000</label>
-					</div>
-					<div class="col-md-2 center-block text-center"
-						style="height: 100%;">
-						<img class="img-responsive" src="resources/images/products/hao/small02.jpg" />
-						<label class="center-block" style="color: royalblue;">电视机</label><br />
-						<label class="center-block" style="color: royalblue;">$3000</label>
-					</div>
+
+				<div class="col-md-6" style="height: 220px;">
+					<img class="img-responsive"
+						src="resources/images/products/hao/middle01.jpg"
+						style="height: 100%;" />
 				</div>
 
-				<div class="row" style="height: 50%;">
+				<c:forEach items="${newList }" var="p">
 					<div class="col-md-2 center-block text-center"
-						style="height: 100%;">
-						<img class="img-responsive" src="resources/images/products/hao/small02.jpg" />
-						<label class="center-block" style="color: royalblue;">电视机</label><br />
-						<label class="center-block" style="color: royalblue;">$3000</label>
+						style="height: 220px;">
+						<img class="img-responsive" src="resources/images/${p.pimage }" />
+						<label class="center-block" style="color: royalblue;">${p.pname }</label><br />
+						<label class="center-block" style="color: royalblue;">$${p.market_price
+							}</label>
 					</div>
-					<div class="col-md-2 center-block text-center"
-						style="height: 100%;">
-						<img class="img-responsive" src="resources/images/products/hao/small02.jpg" />
-						<label class="center-block" style="color: royalblue;">电视机</label><br />
-						<label class="center-block" style="color: royalblue;">$3000</label>
-					</div>
-					<div class="col-md-2 center-block text-center"
-						style="height: 100%;">
-						<img class="img-responsive" src="resources/images/products/hao/small02.jpg" />
-						<label class="center-block" style="color: royalblue;">电视机</label><br />
-						<label class="center-block" style="color: royalblue;">$3000</label>
-					</div>
-					<div class="col-md-2 center-block text-center"
-						style="height: 100%;">
-						<img class="img-responsive" src="resources/images/products/hao/small02.jpg" />
-						<label class="center-block" style="color: royalblue;">电视机</label><br />
-						<label class="center-block" style="color: royalblue;">$3000</label>
-					</div>
-					<div class="col-md-2 center-block text-center"
-						style="height: 100%;">
-						<img class="img-responsive" src="resources/images/products/hao/small02.jpg" />
-						<label class="center-block" style="color: royalblue;">电视机</label><br />
-						<label class="center-block" style="color: royalblue;">$3000</label>
-					</div>
-					<div class="col-md-2 center-block text-center"
-						style="height: 100%;">
-						<img class="img-responsive" src="resources/images/products/hao/small02.jpg" />
-						<label class="center-block" style="color: royalblue;">电视机</label><br />
-						<label class="center-block" style="color: royalblue;">$3000</label>
-					</div>
+				</c:forEach>
 
-				</div>
 			</div>
 		</div>
 
@@ -153,7 +110,8 @@
 		<div class="row">
 			<div class="col-md-12"
 				style="margin-top: 20px; margin-bottom: 20px; height: 100px;">
-				<img class="img-responsive" src="resources/images/products/hao/ad.jpg"
+				<img class="img-responsive"
+					src="resources/images/products/hao/ad.jpg"
 					style="width: 100%; height: 100%;" />
 			</div>
 		</div>
@@ -165,83 +123,35 @@
             -->
 		<div class="row" style="margin-top: 20px;">
 			<div class="col-md-12">
-				<span class="h3">推荐商品</span> <img src="resources/images/img/title2.jpg" />
+				<span class="h3">最热商品</span> <img
+					src="resources/images/img/title2.jpg" />
 			</div>
 		</div>
 		<div class="row" style="margin-top: 10px;">
 			<div class="col-md-2" style="height: 446px;">
-				<img class="img-responsive" src="resources/images/products/hao/big01.jpg"
-					style="height: 100%;" />
+				<img class="img-responsive"
+					src="resources/images/products/hao/big01.jpg" style="height: 100%;" />
 			</div>
 
 			<div class="col-md-10" style="height: 446px;">
-				<div class="row" style="height: 50%;">
-					<div class="col-md-6" style="height: 100%;">
-						<img class="img-responsive" src="resources/images/products/hao/middle01.jpg"
-							style="height: 100%;" />
-					</div>
-					<div class="col-md-2 center-block text-center"
-						style="height: 100%;">
-						<img class="img-responsive" src="resources/images/products/hao/small02.jpg" />
-						<label class="center-block" style="color: royalblue;">电视机</label><br />
-						<label class="center-block" style="color: royalblue;">$3000</label>
-					</div>
-					<div class="col-md-2 center-block text-center"
-						style="height: 100%;">
-						<img class="img-responsive" src="resources/images/products/hao/small02.jpg" />
-						<label class="center-block" style="color: royalblue;">电视机</label><br />
-						<label class="center-block" style="color: royalblue;">$3000</label>
-					</div>
-					<div class="col-md-2 center-block text-center"
-						style="height: 100%;">
-						<img class="img-responsive" src="resources/images/products/hao/small02.jpg" />
-						<label class="center-block" style="color: royalblue;">电视机</label><br />
-						<label class="center-block" style="color: royalblue;">$3000</label>
-					</div>
-				</div>
 
-				<div class="row" style="height: 50%;">
-					<div class="col-md-2 center-block text-center"
-						style="height: 100%;">
-						<img class="img-responsive" src="resources/images/products/hao/small02.jpg" />
-						<label class="center-block" style="color: royalblue;">电视机</label><br />
-						<label class="center-block" style="color: royalblue;">$3000</label>
-					</div>
-					<div class="col-md-2 center-block text-center"
-						style="height: 100%;">
-						<img class="img-responsive" src="resources/images/products/hao/small02.jpg" />
-						<label class="center-block" style="color: royalblue;">电视机</label><br />
-						<label class="center-block" style="color: royalblue;">$3000</label>
-					</div>
-					<div class="col-md-2 center-block text-center"
-						style="height: 100%;">
-						<img class="img-responsive" src="resources/images/products/hao/small02.jpg" />
-						<label class="center-block" style="color: royalblue;">电视机</label><br />
-						<label class="center-block" style="color: royalblue;">$3000</label>
-					</div>
-					<div class="col-md-2 center-block text-center"
-						style="height: 100%;">
-						<img class="img-responsive" src="resources/images/products/hao/small02.jpg" />
-						<label class="center-block" style="color: royalblue;">电视机</label><br />
-						<label class="center-block" style="color: royalblue;">$3000</label>
-					</div>
-					<div class="col-md-2 center-block text-center"
-						style="height: 100%;">
-						<img class="img-responsive" src="resources/images/products/hao/small02.jpg" />
-						<label class="center-block" style="color: royalblue;">电视机</label><br />
-						<label class="center-block" style="color: royalblue;">$3000</label>
-					</div>
-					<div class="col-md-2 center-block text-center"
-						style="height: 100%;">
-						<img class="img-responsive" src="resources/images/products/hao/small02.jpg" />
-						<label class="center-block" style="color: royalblue;">电视机</label><br />
-						<label class="center-block" style="color: royalblue;">$3000</label>
-					</div>
-
+				<div class="col-md-6" style="height: 220px;">
+					<img class="img-responsive"
+						src="resources/images/products/hao/middle01.jpg"
+						style="height: 220px;" />
 				</div>
+				<c:forEach items="${hotList }" var="p">
+					<div class="col-md-2 center-block text-center"
+						style="height: 220px;">
+						<img class="img-responsive" src="resources/images/${p.pimage }" />
+						<label class="center-block" style="color: royalblue;">${p.pname }</label><br />
+						<label class="center-block" style="color: royalblue;">$${p.market_price }</label>
+					</div>
+				</c:forEach>
+
 			</div>
-			<%@ include file = "/footer.jsp" %>
-			</div>
+			<%@ include file="/footer.jsp"%>
 		</div>
-	</body>
+	</div>
+</body>
 </html>

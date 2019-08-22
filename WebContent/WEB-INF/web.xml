@@ -47,4 +47,24 @@
     <servlet-name>CategoryServlet</servlet-name>
     <url-pattern>/Category</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ProductServlet</display-name>
+    <servlet-name>ProductServlet</servlet-name>
+    <servlet-class>com.hujun.NetShop.Servlet.ProductServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ProductServlet</servlet-name>
+    <url-pattern>/Product</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>indexServlet</display-name>
+    <servlet-name>indexServlet</servlet-name>
+    <servlet-class>com.hujun.NetShop.Servlet.indexServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>indexServlet</servlet-name>
+    <url-pattern>/indexServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

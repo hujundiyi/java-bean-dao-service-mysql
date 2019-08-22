@@ -52,13 +52,13 @@ public class CategoryServlet extends BaseServlet {
 
 	}
 
-	@Override
-	public String execute(HttpServletRequest req, HttpServletResponse rep) throws Exception {
-		CategoryService categoryService = new CategoryService();
-		List<Category> cateList = categoryService.getAllCategory();
-		// 1.第一种方式 将分类数据存到request里面 然后页面利用jstl标签去取
-		req.setAttribute("categoryList", cateList);
-
-		return "/jsp/index.jsp";
-	}
+//	@Override
+//	public String execute(HttpServletRequest req, HttpServletResponse rep) throws Exception {
+//		CategoryService categoryService = new CategoryService();
+//		List<Category> cateList = categoryService.getAllCategory();
+//		// 1.第一种方式 将分类数据存到request里面 然后页面利用jstl标签去取
+//		req.setAttribute("categoryList", cateList);
+//
+//		return "/jsp/index.jsp";
+//	}
 }
