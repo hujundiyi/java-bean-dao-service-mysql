@@ -93,7 +93,7 @@
 					<div class="col-md-2 center-block text-center"
 						style="height: 220px;">
 						<img class="img-responsive" src="resources/images/${p.pimage }" />
-						<label class="center-block" style="color: royalblue;">${p.pname }</label><br />
+						<label class="center-block" style="color: royalblue; text-overflow: ellipsis;overflow:hidden;white-space: nowrap">${p.pname }</label><br />
 						<label class="center-block" style="color: royalblue;">$${p.market_price
 							}</label>
 					</div>
@@ -144,14 +144,15 @@
 					<div class="col-md-2 center-block text-center"
 						style="height: 220px;">
 						<img class="img-responsive" src="resources/images/${p.pimage }" />
-						<label class="center-block" style="color: royalblue;">${p.pname }</label><br />
+						<label class="center-block" style="color: royalblue;text-overflow: ellipsis;overflow:hidden;white-space: nowrap">${p.pname }</label><br />
 						<label class="center-block" style="color: royalblue;">$${p.market_price }</label>
 					</div>
 				</c:forEach>
 
 			</div>
-			<%@ include file="/footer.jsp"%>
+			
 		</div>
+		<%@ include file="/footer.jsp"%>
 	</div>
 </body>
 </html>

@@ -7,13 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div class="container" style="margin-top: 20px;">
+	<div class="container" style="margin-top: 20px; margin-bottom: 20px">
 		<!--
         	作者：676083434@qq.com
         	时间：2019-08-06
         	描述：footer image
         -->
-		<div class="row" style="margin-top: 20px; margin-bottom: 20px;">
+		<div class="row" style="margin-top: 20px;">
 			<div class="col-md-12" style="height: 70px;">
 				<img class="img-responsive" src="resources/images/img/footer.jpg"
 					style="width: 100%; height: 100%;" />
