@@ -39,4 +39,13 @@ public class ProductService {
 
 	}
 
+	/**
+	 * @Description:
+	 * @return
+	 */
+	public Product findById(String pid) throws Exception {
+		ProductDao dao = new ProductDaoImpl();
+		return dao.finfindById(pid);
+	}
+
 }

@@ -16,6 +16,7 @@
 	src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 
 <title>商城首页</title>
+
 <body>
 	<%@ include file="/header.jsp"%>
 	<div class="container" style="margin-top: 20px;">
@@ -89,13 +90,14 @@
 						style="height: 100%;" />
 				</div>
 
-				<c:forEach items="${newList }" var="p">
+				<c:forEach items="${newList }" var="p" >
 					<div class="col-md-2 center-block text-center"
-						style="height: 220px;">
-						<img class="img-responsive" src="resources/images/${p.pimage }" />
-						<label class="center-block" style="color: royalblue; text-overflow: ellipsis;overflow:hidden;white-space: nowrap">${p.pname }</label><br />
-						<label class="center-block" style="color: royalblue;">$${p.market_price
-							}</label>
+						style="height: 220px;" id="newDiv">
+						<a href="${pageContext.request.contextPath}/Product?method=findById&pid=${p.pid }"><img class="img-responsive" src="resources/images/${p.pimage }" /></a>
+						<a href="${pageContext.request.contextPath}/Product?method=findById&pid=${p.pid }"><label class="center-block"
+							style="color: royalblue; text-overflow: ellipsis; overflow: hidden; white-space: nowrap" id="newLab">${p.pname }</label><br /></a>
+						
+						<label class="center-block" style="color: royalblue;">$${p.market_price }</label>
 					</div>
 				</c:forEach>
 
@@ -143,14 +145,22 @@
 				<c:forEach items="${hotList }" var="p">
 					<div class="col-md-2 center-block text-center"
 						style="height: 220px;">
-						<img class="img-responsive" src="resources/images/${p.pimage }" />
-						<label class="center-block" style="color: royalblue;text-overflow: ellipsis;overflow:hidden;white-space: nowrap">${p.pname }</label><br />
-						<label class="center-block" style="color: royalblue;">$${p.market_price }</label>
+						<a href="${pageContext.request.contextPath}/Product?method=findById&pid=${p.pid }"><img
+							class="img-responsive" src="resources/images/${p.pimage }" />
+						</a> 
+						<a href="${pageContext.request.contextPath}/Product?method=findById&pid=${p.pid }">
+							<label
+							class="center-block"
+							style="color: royalblue; text-overflow: ellipsis; overflow: hidden; white-space: nowrap">${p.pname }
+							</label><br />
+						</a>
+						<label class="center-block" style="color: royalblue;">$${p.market_price
+							}</label>
 					</div>
 				</c:forEach>
 
 			</div>
-			
+
 		</div>
 		<%@ include file="/footer.jsp"%>
 	</div>

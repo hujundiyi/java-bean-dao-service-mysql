@@ -6,6 +6,7 @@ package com.hujun.NetShop.DaoImpl;
 import java.util.List;
 
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import com.hujun.NetShop.Bean.Product;
@@ -38,6 +39,14 @@ public class ProductDaoImpl implements ProductDao {
 		List<Product> products = qRunner.query(sqlString, new BeanListHandler<Product>(Product.class));
 
 		return products;
+	}
+
+	@Override
+	public Product finfindById(String pid) throws Exception {
+		String sqlString = "select * from product where pid=? limit 0,1";
+		QueryRunner qRunner = new QueryRunner(JDBCUtils.getDataSource());
+		//// 别忘记传参数
+		return qRunner.query(sqlString, new BeanHandler<Product>(Product.class), pid);
 	}
 
 }

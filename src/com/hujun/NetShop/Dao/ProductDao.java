@@ -25,4 +25,11 @@ public interface ProductDao {
 	 */
 	public List<Product> getHotestProduct() throws Exception;
 
+	/**
+	 * @Description:
+	 * @param pid
+	 * @return
+	 */
+	public Product finfindById(String pid) throws Exception;
+
 }

@@ -37,4 +37,14 @@ public class ProductServlet extends BaseServlet {
 		return null;
 	}
 
+	/*
+	 * 根据id获取商品详情
+	 */
+	public String findById(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		ProductService service = new ProductService();
+		Product product = service.findById(request.getParameter("pid"));
+		request.setAttribute("getProductItem", product);
+		return "/jsp/productDetail.jsp";
+	}
+
 }
